@@ -20,9 +20,11 @@ public class ClientTest {
 	}
 
 	private static void deserializeObject(String fileName) {
-		try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(fileName)))) {
-			Object object = ois.readObject();
-			Employee employee=(Employee)object;
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(fileName)));
+			/*Object object = ois.readObject();
+			Employee employee=(Employee)object;*/
+			Employee employee=(Employee) ois.readObject();
 			System.out.println(employee);
 		} catch (Exception e) {
 			e.printStackTrace();
